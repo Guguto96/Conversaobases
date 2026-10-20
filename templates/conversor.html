@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BaseConvert | Conversor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<header>
+    <h1>BaseConvert</h1>
+
+    <nav>
+        <a href="/">Início</a>
+        <a href="/conversor">Conversor</a>
+        <a href="/integrantes">Integrantes</a>
+    </nav>
+</header>
+
+<main class="container">
+    <section class="hero">
+        <h2>Conversor de bases numéricas</h2>
+        <p>Selecione as bases e informe o número que deseja converter.</p>
+    </section>
+
+    <section class="card">
+        <form method="POST" action="/conversor">
+
+            <label for="numero">Número para converter</label>
+            <input
+                type="text"
+                id="numero"
+                name="numero"
+                placeholder="Ex.: 255, 1010 ou FF"
+                required
+            >
+
+            <label for="base_origem">Base de origem</label>
+            <select id="base_origem" name="base_origem" required>
+                <option value="10">Decimal (10)</option>
+                <option value="2">Binário (2)</option>
+                <option value="16">Hexadecimal (16)</option>
+                <option value="8">Octal (8)</option>
+            </select>
+
+            <label for="base_destino">Base de destino</label>
+            <select id="base_destino" name="base_destino" required>
+                <option value="2">Binário (2)</option>
+                <option value="10">Decimal (10)</option>
+                <option value="16">Hexadecimal (16)</option>
+                <option value="8">Octal (8)</option>
+            </select>
+
+            <button class="botao" type="submit">Converter número</button>
+        </form>
+    </section>
+</main>
+
+{% if resultado is not none %}
+<div class="modal" id="modalResultado">
+    <div class="modal-conteudo">
+        <button class="fechar" onclick="fecharModal()" aria-label="Fechar">&times;</button>
+        <h2>Conversão realizada!</h2>
+        <p>Resultado da conversão:</p>
+        <div class="resultado">{{ resultado }}</div>
+        <button class="botao" onclick="fecharModal()">Fechar</button>
+    </div>
+</div>
+{% endif %}
+
+{% if erro %}
+<div class="modal" id="modalErro">
+    <div class="modal-conteudo">
+        <button class="fechar" onclick="fecharModal()" aria-label="Fechar">&times;</button>
+        <h2>Atenção</h2>
+        <p>{{ erro }}</p>
+        <button class="botao" onclick="fecharModal()">Tentar novamente</button>
+    </div>
+</div>
+{% endif %}
+
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BaseConvert | Conversor de Bases Numéricas</title>
+
+    <link rel="icon" type="image/png"
+          href="{{ url_for('static', filename='img/LogoBaseConvert.png') }}">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+    <style>
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 8%;
+        }
+
+        .logo-menu {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .logo-menu img {
+            width: 55px;
+            height: 55px;
+            object-fit: contain;
+            border-radius: 8px;
+        }
+
+        .logo-menu h1 {
+            font-size: 1.6rem;
+            color: #38bdf8;
+            margin: 0;
+        }
+
+        @media (max-width: 600px) {
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .logo-menu img {
+                width: 45px;
+                height: 45px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <a href="/" class="logo-menu">
+        <img
+            src="{{ url_for('static', filename='img/LogoBaseConvert.png') }}"
+            alt="BaseConvert"
+        >
+        <h1>BaseConvert</h1>
+    </a>
+
+    <nav>
+        <a href="/">Início</a>
+        <a href="/conversor">Conversor</a>
+        <a href="/integrantes">Integrantes</a>
+    </nav>
+</header>
+
+<main class="container">
+    <section class="hero">
+        <h2>Explore o mundo dos números</h2>
+
+        <p>
+            Os sistemas numéricos são fundamentais para a computação,
+            permitindo representar informações e processar dados.
+            Cada sistema utiliza uma base diferente para representar
+            os valores numéricos.
+        </p>
+
+        <a class="botao" href="/conversor">Começar a converter</a>
+    </section>
+
+    <section class="cards">
+        <article class="card">
+            <h3>Decimal — Base 10</h3>
+            <p>
+                Utiliza dez algarismos, de 0 a 9. É o sistema que usamos
+                no cotidiano.
+            </p>
+        </article>
+
+        <article class="card">
+            <h3>Binário — Base 2</h3>
+            <p>
+                Utiliza apenas 0 e 1. É essencial para representar dados
+                nos computadores.
+            </p>
+        </article>
+
+        <article class="card">
+            <h3>Octal — Base 8</h3>
+            <p>
+                Utiliza algarismos de 0 a 7 e pode simplificar a
+                representação de números binários.
+            </p>
+        </article>
+
+        <article class="card">
+            <h3>Hexadecimal — Base 16</h3>
+            <p>
+                Utiliza algarismos de 0 a 9 e letras de A a F.
+                É bastante utilizado na computação.
+            </p>
+        </article>
+    </section>
+</main>
+
+<footer>
+    <p>BaseConvert — Projeto acadêmico de Sistemas de Informação</p>
+</footer>
+
+</body>
+</html>
